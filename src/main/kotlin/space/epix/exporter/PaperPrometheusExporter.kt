@@ -9,7 +9,7 @@ class PaperPrometheusExporter : JavaPlugin() {
 
     override fun onEnable() {
         epixExporter = EpixPrometheusExporter()
-        epixExporter.start(CollectibleType.PAPER, 8080)
+        epixExporter.start(CollectibleType.PAPER, 9123) // TODO: move port to config
     }
 
     override fun onDisable() {
