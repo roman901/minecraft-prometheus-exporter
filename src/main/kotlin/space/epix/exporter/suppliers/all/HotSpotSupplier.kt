@@ -1,5 +1,6 @@
 package space.epix.exporter.suppliers.all
 
+import io.prometheus.client.GaugeMetricFamily
 import io.prometheus.client.hotspot.DefaultExports
 import space.epix.exporter.core.Collectible
 import space.epix.exporter.core.CollectibleSupplier
@@ -10,6 +11,6 @@ import space.epix.exporter.core.CollectibleType
         DefaultExports.initialize()
     }
 
-    override fun collect() { }
+    override fun collect(): GaugeMetricFamily? { return null }
 
 }
