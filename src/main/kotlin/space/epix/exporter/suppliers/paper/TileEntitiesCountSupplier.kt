@@ -11,7 +11,7 @@ import space.epix.exporter.core.CollectibleType
     override fun build() { }
 
     override fun collect(): GaugeMetricFamily? {
-        val gauge = GaugeMetricFamily("mc_tile_entites", "Tile entities count", listOf("world"))
+        val gauge = GaugeMetricFamily("mc_tile_entities", "Tile entities count", listOf("world"))
         Bukkit.getWorlds().forEach {
             gauge.addMetric(listOf(it.name), it.tileEntityCount.toDouble())
         }
