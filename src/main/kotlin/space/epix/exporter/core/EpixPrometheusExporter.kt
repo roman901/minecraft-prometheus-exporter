@@ -18,12 +18,12 @@ class EpixPrometheusExporter {
         suppliersClasses.forEach {
             val supplier = it.getConstructor().newInstance() as CollectibleSupplier
             val annotation = supplier::class.findAnnotation<Collectible>()
-            if (annotation?.type == runtime) {
+            if (annotation?.type == CollectibleType.ALL || annotation?.type == runtime) {
                 supplier.build()
                 suppliers.add(supplier)
             }
         }
-        
+
         httpServer = HTTPServer(port)
     }
 }
