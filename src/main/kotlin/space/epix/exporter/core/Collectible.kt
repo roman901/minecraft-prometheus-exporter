@@ -1,4 +1,5 @@
 package space.epix.exporter.core
 
-class Collectible {
-}
+@Target(AnnotationTarget.CLASS)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class Collectible(val type: CollectibleType)

@@ -17,6 +17,7 @@ buildscript {
 }
 
 plugins {
+    id("com.github.johnrengelman.shadow") version "5.2.0"
     kotlin("jvm") version "1.3.71"
 }
 
@@ -30,5 +31,7 @@ dependencies {
     implementation("io.prometheus:simpleclient:0.8.1")
     implementation("io.prometheus:simpleclient_hotspot:0.8.1")
     implementation("io.prometheus:simpleclient_httpserver:0.8.1")
+    implementation("org.reflections:reflections:0.9.12")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.71")
     implementation(kotlin("stdlib"))
 }
