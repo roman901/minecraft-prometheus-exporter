@@ -1,2 +1,1 @@
-rootProject.name = "paper-prometheus-exporter"
-
+rootProject.name = "prometheus-exporter"
