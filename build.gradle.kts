@@ -35,3 +35,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.71")
     implementation(kotlin("stdlib"))
 }
+
+tasks {
+    compileKotlin {
+        kotlinOptions.jvmTarget = "11"
+    }
+}
