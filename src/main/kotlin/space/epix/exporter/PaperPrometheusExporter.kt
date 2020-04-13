@@ -5,13 +5,21 @@ import space.epix.exporter.core.CollectibleType
 import space.epix.exporter.core.EpixPrometheusExporter
 
 class PaperPrometheusExporter : JavaPlugin() {
-    lateinit var epixExporter: EpixPrometheusExporter
+    private lateinit var epixExporter: EpixPrometheusExporter
 
     override fun onEnable() {
+        instance = this
+
+        val port = config.getInt("server.port", 9123)
         epixExporter = EpixPrometheusExporter()
-        epixExporter.start(CollectibleType.PAPER, 9123) // TODO: move port to config
+        epixExporter.start(CollectibleType.PAPER, port)
     }
 
     override fun onDisable() {
+        epixExporter.stop()
+    }
+
+    companion object Plugin {
+        lateinit var instance: PaperPrometheusExporter
     }
 }

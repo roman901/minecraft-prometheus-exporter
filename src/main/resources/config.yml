@@ -1,0 +1,4 @@
+server:
+  port: 9123
+log:
+  collector-failures: false
