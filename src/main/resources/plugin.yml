@@ -1,4 +1,4 @@
 main: space.epix.exporter.PaperPrometheusExporter
 name: EpixPrometheusExporter
 version: 1.0.0
-api-version: "1.15"
+api-version: "1.13"
