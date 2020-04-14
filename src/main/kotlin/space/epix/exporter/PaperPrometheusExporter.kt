@@ -9,6 +9,7 @@ class PaperPrometheusExporter : JavaPlugin() {
 
     override fun onEnable() {
         instance = this
+        saveDefaultConfig()
 
         val port = config.getInt("server.port", 9123)
         epixExporter = EpixPrometheusExporter()
