@@ -28,6 +28,7 @@ repositories {
 
 dependencies {
     compileOnly("com.destroystokyo.paper:paper-api:1.12.1-R0.1-SNAPSHOT")
+    compileOnly("com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT")
     implementation("io.prometheus:simpleclient:0.8.1")
     implementation("io.prometheus:simpleclient_hotspot:0.8.1")
     implementation("io.prometheus:simpleclient_httpserver:0.8.1")
