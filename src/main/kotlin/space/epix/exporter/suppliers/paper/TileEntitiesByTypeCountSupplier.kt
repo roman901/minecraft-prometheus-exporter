@@ -26,10 +26,14 @@ class TileEntitiesByTypeCountSupplier : CollectibleSupplier {
                         addDataToGauge(world, gauge)
                     }.get(50, TimeUnit.MILLISECONDS)
                 } catch (ignoredTimeoutException: TimeoutException) {
-                    log("Couldn't retrieve (sync) tile entity data in 50 ms window from world ${world.name}")
+                    if (PaperPrometheusExporter.instance.config.getBoolean("log.collector-failures", false)) {
+                        log("Couldn't retrieve (sync) tile entity data in 50 ms window from world ${world.name}")
+                    }
                 } catch (otherException: Exception) {
-                    log("Couldn't retrieve (sync) tile entity data from world ${world.name}: " +
-                            "${otherException.javaClass.simpleName} - ${otherException.message}")
+                    if (PaperPrometheusExporter.instance.config.getBoolean("log.collector-failures", false)) {
+                        log("Couldn't retrieve (sync) tile entity data from world ${world.name}: " +
+                                "${otherException.javaClass.simpleName} - ${otherException.message}")
+                    }
                 }
             }
         }
