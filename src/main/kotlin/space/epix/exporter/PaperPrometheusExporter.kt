@@ -9,11 +9,22 @@ class PaperPrometheusExporter : JavaPlugin() {
 
     override fun onEnable() {
         instance = this
-        saveDefaultConfig()
 
-        val port = config.getInt("server.port", 9123)
         epixExporter = EpixPrometheusExporter()
-        epixExporter.start(CollectibleType.PAPER, port)
+        var success = false
+        var port = config.getInt("server.port", 9123)
+
+        while (!success) {
+            try {
+                epixExporter.start(CollectibleType.PAPER, port)
+                success = true
+            } catch (e: Exception) {
+                port++
+            }
+        }
+        logger.info("Starting exporter on port $port")
+        config.set("server.port", port)
+        saveDefaultConfig()
     }
 
     override fun onDisable() {
