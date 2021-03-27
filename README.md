@@ -1,3 +1,3 @@
-# prometheus-exporter
+# Minecraft Prometheus Exporter
 
-Bukkit plugin for metrics export
+Bukkit plugin for metrics export via Prometheus-compatible endpoint
